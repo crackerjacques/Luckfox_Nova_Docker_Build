@@ -1,6 +1,6 @@
 # Luckfox_Nova_Docker_Build
 
-Build Luckfox Nova firmware in any OS.
+Build Luckfox Nova Buildroot firmware in any OS.
 
 # Prepare
 
