@@ -7,7 +7,7 @@ Build Luckfox Nova firmware in any OS.
 Install Docker
 
 ```
-# MacOS
+# MacOS (did not work with general setting so far)
 brew install docker
 
 # Arch
