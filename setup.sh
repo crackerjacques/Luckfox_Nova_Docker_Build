@@ -2,7 +2,7 @@
 
 # Luckfox Nova SDK Automated Build Environment Setup Script
 echo "=============================================="
-echo "  Luckfox Nova SDK Docker Build Environment"
+echo "🐳Luckfox Nova SDK Docker Build Environment"
 echo "=============================================="
 
 # Function to display colored output
@@ -419,8 +419,18 @@ mkdir -p output
 
 # Start Docker container
 print_status "Starting Docker container..."
+
+# Detect platform and set Docker options accordingly
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    print_status "macOS detected - using linux/amd64 platform for better compatibility"
+    PLATFORM_OPTION="--platform linux/amd64"
+else
+    PLATFORM_OPTION=""
+fi
+
 docker run -it \
     --name luckfox-dev \
+    $PLATFORM_OPTION \
     --privileged \
     -v $(pwd)/nova-sdk:/home/nova/nova-sdk \
     -v $(pwd)/build_setup.sh:/home/nova/build_setup.sh \
